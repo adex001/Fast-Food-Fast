@@ -6,8 +6,11 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.4"
   },
   "devDependencies": {
@@ -18,7 +21,7 @@
     "eslint-plugin-react": "^7.11.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": " mocha --require babel-register --timeout 10000 ./server/test/*.js --exit",
     "build": "babel server -d src",
     "start": "nodemon --exec npm run babel-node -- ./server/app.js",
     "babel-node": "babel-node --presets=latest"
