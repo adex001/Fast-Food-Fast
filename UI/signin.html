@@ -8,7 +8,7 @@
   <style>@import url('https://fonts.googleapis.com/css?family=Oxygen');
   @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
   </style>
-  <title>Welcome to Fast-Food-Fast Online food delivery Service</title>
+  <title>Signup page!</title>
 </head>
 <body>
   <header>
@@ -16,7 +16,6 @@
       <nav class="headernav">
         <div class="logo"><a href="">Fast-Food-Fast</a></div>
         <ul>
-          <li><a href="">Sign in</a></li>
           <li><a href="">Sign up</a></li>
         </ul>
       </nav>
@@ -24,14 +23,16 @@
   </header>
   <section>
     <div class="container">
-      <div class="mainsection">
-        <p class="para">
-          Welcome to fast food fast 
-        </p>
-        <p class="graph">
-            Quality meal meets quality delivery... Quality food items delivered to your door-step! <br><br>
-            good food! ...your stomach will thank you.. yummy!!!
-        </p>
+      <h2 class="bigfont">Signin to Fast-Food-Fast</h2>
+      <div class="formholder">
+        <form class="myform" action="dashboard.html" method="POST">
+          <label for="user">Email Address </label><input type="email" class="forminput"  placeholder="abc123@abc.com" required><br><br>
+          <label for="password">Password</label> <input type="password" class="forminput" placeholder="enter password" required> <br>
+          <input type="submit" class="submit" value="sign up">
+          <p>Not registered?<a href="./signup.html">sign up</a></p>
+          <p>forgot password? click<a href="./signup.html">here</a></p><br>
+          
+        </form>
       </div>
     </div>
     
