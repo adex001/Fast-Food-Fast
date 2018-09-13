@@ -4,11 +4,17 @@
   "description": "Fast-Food-Fast​ is a food delivery service app for a restaurant.",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.16.3"
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel server -d src",
+    "start": "nodemon --exec npm run babel-node -- ./server/app.js",
+    "babel-node": "babel-node --presets=latest"
   },
   "repository": {
     "type": "git",
