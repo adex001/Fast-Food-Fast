@@ -26,7 +26,9 @@
     "build": "babel server -d src",
     "start": "nodemon --exec npm run babel-node -- ./server/app.js",
     "test": "cross-env NODE_ENV=test && nyc --reporter=html --reporter=text mocha --require babel-register --timeout 10000 ./server/test/*.js --exit",
-    "babel-node": "babel-node --presets=latest"
+    "babel-node": "babel-node --presets=latest",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "repository": {
     "type": "git",
