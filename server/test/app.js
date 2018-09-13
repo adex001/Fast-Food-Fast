@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 chai.should();
 
 describe('Display the homepage message', () => {
-  it('should display "Welcome to fast-food-fast API" and a status of 200', (done) => {
+  it('should display "Welcome to fast-food-fast API" ', (done) => {
     chai.request(app)
       .get('/')
       .set('Accept', 'application/json')
