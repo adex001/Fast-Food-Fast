@@ -181,3 +181,25 @@ margin-bottom: 20px;
 .total{
   
 }
+.orderhistory{
+  width: 100%;
+  background: rgba(7, 39, 15, 0.8);
+}
+.sno{
+  margin: 10px;
+}
+.ono{
+  margin: 0 10px;
+}
+.ode{
+  margin: 0 10px;
+}
+.oda{
+  margin: 0 10px;
+}
+.ost{
+  margin: 0 10px;
+}
+.orderhistory div{
+  margin-bottom: 20px;
+}

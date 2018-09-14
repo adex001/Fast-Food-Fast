@@ -20,6 +20,7 @@ class OrderController {
     if (found) {
       res.status(200).json({
         message: 'Fetches a single order',
+        found,
       });
     } else {
       res.status(404).json({
@@ -59,6 +60,7 @@ class OrderController {
       found.meals = meals;
       res.status(200).json({
         message: 'Updates a specific order',
+        found,
       });
     } else {
       res.status(404).json({
