@@ -203,3 +203,39 @@ margin-bottom: 20px;
 .orderhistory div{
   margin-bottom: 20px;
 }
+.orderlist{
+  background: rgba(7, 39, 15, 0.8);
+}
+.orderlist h3{
+  text-align: center;
+}
+.orderlist ul{
+  list-style-type: none;
+  margin-top: 20px;
+
+}
+.orderlist ul li{
+  display: inline;
+  margin: 10px 
+}
+.orderlist ul li a{
+color: white;
+}
+.orderlist ul li button{
+  width: 90px;
+  padding: 5px 10px;
+  background: white;
+
+}
+.accept{
+  color: green;
+  border: 2px solid green;
+}
+.reject{
+  color: red;
+  border: 2px solid red;
+}
+.complete{
+  color: blue;
+  border: 2px solid blue;
+}
