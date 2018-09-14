@@ -1,29 +1,15 @@
 import { Router } from 'express';
 
+import OrderController from '../controller/orders';
+
 const ordersRoute = Router();
 
-ordersRoute.get('/', (req, res) => {
-  res.json({
-    message: 'Gets all orders!!',
-  });
-});
+ordersRoute.get('/', OrderController.getAllOrders);
 
-ordersRoute.get('/:orderId', (req, res) => {
-  res.json({
-    message: 'Fetches a single order',
-  });
-});
+ordersRoute.get('/:ordersId', OrderController.fetchSpecificOrder);
 
-ordersRoute.post('/', (req, res) => {
-  res.json({
-    message: 'place a single order',
-  });
-});
+ordersRoute.post('/', OrderController.addOrder);
 
-ordersRoute.put('/:orderId', (req, res) => {
-  res.json({
-    message: 'Updates the status of an order'
-  });
-});
+ordersRoute.put('/:ordersId', OrderController.updateOrder);
 
 export default ordersRoute;

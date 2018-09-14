@@ -2,7 +2,7 @@ const orders = [
   {
     ordersId: 1,
     ordersDate: '14/9/2018 1:36AM',
-    orders: [{
+    meals: [{
       mealId: 1,
       quantity: 3,
     },
@@ -15,7 +15,7 @@ const orders = [
   {
     ordersId: 2,
     ordersDate: '14/9/2018 1:39AM',
-    orders: [{
+    meals: [{
       mealId: 3,
       quantity: 1,
     },

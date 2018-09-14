@@ -26,6 +26,15 @@ describe('Orders Routes API test', () => {
         done();
       });
   });
+  it('Tests for fetch single order not found', (done) => {
+    chai.request(app)
+      .get('/api/v1/orders/100')
+      .set('Accept', 'application/json')
+      .end((err, response) => {
+        response.body.message.should.eql('Order not found!');
+        done();
+      });
+  });
   it('Tests to place a single order', (done) => {
     chai.request(app)
       .post('/api/v1/orders')
@@ -40,9 +49,30 @@ describe('Orders Routes API test', () => {
     chai.request(app)
       .put('/api/v1/orders/1')
       .set('Accept', 'application/json')
+      .send({
+        meals:
+        [{
+          mealId: 3,
+          quantity: 1,
+        },
+        {
+          mealId: 1,
+          quantity: 2,
+        },
+        ],
+      })
+      .end((err, response) => {
+        response.body.message.should.eql('Updates a specific order');
+        done();
+      });
+  });
+  it('Cannot update an invalid order', (done) => {
+    chai.request(app)
+      .put('/api/v1/orders/10000')
+      .set('Accept', 'application/json')
       .send({})
       .end((err, response) => {
-        response.body.message.should.eql('Updates the status of an order');
+        response.body.message.should.eql('Order not found!');
         done();
       });
   });
