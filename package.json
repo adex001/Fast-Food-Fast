@@ -14,6 +14,7 @@
     "nodemon": "^1.18.4"
   },
   "devDependencies": {
+    "codeclimate-test-reporter": "^0.5.0",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "eslint": "^5.5.0",
