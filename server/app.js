@@ -2,13 +2,15 @@ import express from 'express';
 import dotenv from 'dotenv';
 
 import ordersRoute from './routes/orders';
+import foodRoute from './routes/foodItem'
 
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 
 app.use('/api/v1/orders', ordersRoute);
+app.use('/api/v1/fooditem', foodRoute);
 
 app.get('/', (req, res) => {
   res.status(200).json({
