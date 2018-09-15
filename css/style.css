@@ -164,6 +164,11 @@ margin-bottom: 20px;
   margin: 0 0 0 30%;
 
 }
+.totalorderprice{
+  width: 40%;
+  margin: 0 0 0 42%;
+
+}
 .orderdate{
   text-align: center;
   padding: 10px 0 10px 0;
@@ -179,7 +184,7 @@ margin-bottom: 20px;
   text-align: center;
 }
 .total{
-  
+  margin-left: 10%;
 }
 .orderhistory{
   width: 100%;
@@ -260,4 +265,20 @@ color: white;
   color: white;
   border: 2px solid white;
   margin: 20px;
+}
+.more{
+  width: 180px;
+  padding: 5px 10px;
+  background: white;
+  color: green;
+  border: 2px solid green;
+  margin: 20px 80px;
+}
+.checkout{
+  width: 180px;
+  padding: 5px 10px;
+  background: white;
+  color: blue;
+  border: 2px solid greenyellow;
+  margin: 20px 80px;
 }
