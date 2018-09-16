@@ -69,7 +69,7 @@ h2{
   margin: 5px 10px 0 0;
 }
 .forminput {
-  width: 70%;
+  width: 50%;
   padding: 15px;
   border-radius: 5px;
   height: 20px;
@@ -83,20 +83,24 @@ h2{
   background: rgba(7, 39, 15, 0.8);
   margin: 50px auto;
   padding: 10px;
-  border: 1px dashed yellow;
-  width: 75%;
+  border: 2px solid green;
+  width: 60%;
 }
 .submit {
   width: 30%;
-  background: transparent;
-  color: white;
-  border: 2px solid yellow;
-  margin: 10px 0 0 50% ;
+  background: white;
+  color: green;
+  border: 2px solid green;
+  margin: 10px 0 0 35% ;
   padding: 10px;
+  font-weight: bold;
 }
 .myform p{
   font-size: 10px;
-  margin: 10px 0 20px 30%;
+  margin: 20px 0 20px 20%;
+}
+.myform{
+  margin-top: 20px;
 }
 .myform p a {
   text-decoration: none;
@@ -123,8 +127,7 @@ h2{
   margin: 20px auto;
 }
 .centerdiv{
-  border: 2px solid red;
-  padding: 0 2%;
+  padding: 0 20px;
 }
 .fooditem{
   width: 270px;
@@ -144,8 +147,7 @@ h2{
 }
 .foodprice{
   width: 30%;
-  border: 1px solid red;
-  margin-left: 90px;
+  float: right;
 }
 .order {
   color: white;
