@@ -13,14 +13,14 @@ body{
   margin: 0 auto;
 }
 .headernav{
-  height: 50px;
+  height: 100px;
 }
 header{
   background-color: rgba(7, 39, 15, 0.8);
 }
 .headernav ul {
   list-style: none;
-  padding: 10px 0 0 20px;
+  padding: 40px 0 0 20px;
 }
 .headernav ul li{
   float: right;
@@ -34,14 +34,19 @@ header{
   float: left;
   padding: 10px 0 0 20px;
 }
+.logo a img{
+  width: 100px;
+  height: 80px;
+  float: left;
+}
 .mainsection{
   min-height: 200px;
   background: rgba(7, 39, 15, 0.8);
-  margin-top: 10%;
+  margin-top: 20px;
   text-align: center;
   letter-spacing: 5px;
   padding: 10px;
-  border: 1px dashed whitesmoke;
+  border: 2px solid whitesmoke;
 }
 .para{
   font-family: 'Gloria Hallelujah',  'oxygen', 'sans-serif';
@@ -107,6 +112,7 @@ h2{
   margin: 30px auto;
   color: yellow
 }
+
 .fooditemsholder h2{
   width: 40%;
   font-family: 'Gloria Hallelujah';
@@ -116,17 +122,21 @@ h2{
   border-bottom: 2px solid yellow;
   margin: 20px auto;
 }
+.centerdiv{
+  border: 2px solid red;
+  padding: 0 2%;
+}
 .fooditem{
-  width: 305px;
+  width: 270px;
   min-height: 150px;
   border: 2px solid yellow;
   display: inline-block;
-  margin: 10px 5px;
+  margin: 10px auto;
   background: rgba(7, 39, 15, 0.8);
 }
 .fooditem img{
-  width: 300px;
-  height: 200px;
+  width: 266px;
+  height: 180px;
 }
 .fooddesc{
   width: 70%;
