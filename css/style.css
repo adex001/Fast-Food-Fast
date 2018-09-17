@@ -13,14 +13,14 @@ body{
   margin: 0 auto;
 }
 .headernav{
-  height: 50px;
+  height: 100px;
 }
 header{
   background-color: rgba(7, 39, 15, 0.8);
 }
 .headernav ul {
   list-style: none;
-  padding: 10px 0 0 20px;
+  padding: 40px 0 0 20px;
 }
 .headernav ul li{
   float: right;
@@ -34,23 +34,28 @@ header{
   float: left;
   padding: 10px 0 0 20px;
 }
+.logo a img{
+  width: 100px;
+  height: 80px;
+  float: left;
+}
 .mainsection{
   min-height: 200px;
   background: rgba(7, 39, 15, 0.8);
-  margin-top: 10%;
+  margin-top: 20px;
   text-align: center;
   letter-spacing: 5px;
   padding: 10px;
-  border: 1px dashed whitesmoke;
+  border: 2px solid whitesmoke;
 }
 .para{
   font-family: 'Gloria Hallelujah',  'oxygen', 'sans-serif';
   font-size: 30px;
   padding-top: 20px;
-  
+
 }
 .graph{
-  padding: 10px; 
+  padding: 10px;
   font-family: 'oxygen';
 }
 h2{
@@ -64,7 +69,7 @@ h2{
   margin: 5px 10px 0 0;
 }
 .forminput {
-  width: 70%;
+  width: 50%;
   padding: 15px;
   border-radius: 5px;
   height: 20px;
@@ -78,20 +83,24 @@ h2{
   background: rgba(7, 39, 15, 0.8);
   margin: 50px auto;
   padding: 10px;
-  border: 1px dashed yellow;
-  width: 75%;
+  border: 2px solid green;
+  width: 60%;
 }
 .submit {
   width: 30%;
-  background: transparent;
-  color: white;
-  border: 2px solid yellow;
-  margin: 10px 0 0 50% ;
+  background: white;
+  color: green;
+  border: 2px solid green;
+  margin: 10px 0 0 35% ;
   padding: 10px;
+  font-weight: bold;
 }
 .myform p{
   font-size: 10px;
-  margin: 10px 0 20px 30%;
+  margin: 20px 0 20px 20%;
+}
+.myform{
+  margin-top: 20px;
 }
 .myform p a {
   text-decoration: none;
@@ -107,6 +116,7 @@ h2{
   margin: 30px auto;
   color: yellow
 }
+
 .fooditemsholder h2{
   width: 40%;
   font-family: 'Gloria Hallelujah';
@@ -116,17 +126,20 @@ h2{
   border-bottom: 2px solid yellow;
   margin: 20px auto;
 }
+.centerdiv{
+  padding: 0 20px;
+}
 .fooditem{
-  width: 305px;
+  width: 270px;
   min-height: 150px;
   border: 2px solid yellow;
   display: inline-block;
-  margin: 10px 5px;
+  margin: 10px auto;
   background: rgba(7, 39, 15, 0.8);
 }
 .fooditem img{
-  width: 300px;
-  height: 200px;
+  width: 266px;
+  height: 180px;
 }
 .fooddesc{
   width: 70%;
@@ -134,8 +147,7 @@ h2{
 }
 .foodprice{
   width: 30%;
-  border: 1px solid red;
-  margin-left: 90px;
+  float: right;
 }
 .order {
   color: white;
@@ -221,7 +233,7 @@ margin-bottom: 20px;
 }
 .orderlist ul li{
   display: inline;
-  margin: 10px 
+  margin: 10px
 }
 .orderlist ul li a{
 color: white;
@@ -256,7 +268,7 @@ color: white;
   color: white;
   border: 2px solid white;
   margin: 20px;
-  
+
 }
 .delete{
   width: 90px;
@@ -281,4 +293,16 @@ color: white;
   color: blue;
   border: 2px solid greenyellow;
   margin: 20px 80px;
+}
+/* Media Queries */
+@media (min-width: 200px) and (max-width: 350px) {
+.fooditemsholder h2{
+    width: 80%;
+  }
+.fooditem{
+  width: 100%;
+}
+.fooditem img{
+  width: 100%;
+}
 }
