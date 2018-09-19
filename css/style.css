@@ -24,8 +24,8 @@ ul {
 /* HEADER */
 header{
   min-height: 100px;
-  color: #ffffff;
   border-bottom: 3px solid #1e29c5;
+  background: #ffffff;
 }
 
 header a{
@@ -57,6 +57,11 @@ header nav{
 header .brand img{
   width: 150px;
   height: 100px;
+}
+
+header img{
+  width: 30px;
+  height: 20px;
 }
 
 header .highlight, header .current a{
@@ -175,29 +180,160 @@ section {
   background-size: 100%;
 }
 
-section form{
-width: 40%;
-margin: auto;
-padding: 10% 0;
-color: #fff;
-font-size: 20px;
-}
-section .label {
-width: 100%;
-display: block;
-font-weight: bold;
+/* SIGNIN / SIGNUP */
+#signin form, #signup form{
+  height: 850px;
+  width: 600px;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: bold;
 }
 
-section .form-data{
-  width: 100%;
+#signin form h1, #signup form h1{
+  text-align: center;
+  color: #fff;
+  margin-top: 50px;
+}
+
+form label {
+  display: block;
+  padding: 10px 0;
+
+}
+
+form a{
+  color: #ffffff;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+form p{
+  display: inline;
+}
+form div{
+  margin-top: 10px;
+}
+
+form select{
+  display: inline-block;
+  width: 100px;
+  margin: 0 20px;
+}
+
+form .form-data{
+  padding: 5px 10px;
+  width: 500px;
+}
+
+form .form-submit{
+  display: block;
+  margin: 20px 0;
   padding: 10px;
-  margin-bottom: 10px;
-
+  width: 525px;
+  border: 2px solid #357ae0;
+  color: #357ae0;
 }
 
-section .form-submit{
-  width: 100%;
-  padding: 15px 20px;
+/* QUICKTALK */
+#quick-talk {
+  height: 150px;
+  background: linear-gradient(rgba(70, 67, 245, 0.4), rgba(70, 67, 245, 0.4)), url('../images/fried\ rice.jpg') no-repeat center;
+  color: #fff;
+  font-family: 'Mountains of Christmas';
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+#quick-talk p{
+  font-size: 20px;
+}
+
+/* ORDERS HISTORY */
+
+.orders-list h2 {
+  width: 40%;
+  margin: 10px auto;
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #357ae0;
+}
+
+table{
+  margin: auto;
+}
+
+ table th{
+   width: 150px;
+   margin-right: 5px;
+   padding: 3px 10px;
+   text-align: center;
+   font-weight: bolder;
+   font-size: 16px;
+   background: #357ae0;
+ }
+ table th .order-desp{
+   width: 100%;
+ }
+
+ table td {
+  text-align: center;
+ }
+
+ .recommended {
+   margin: 30px 0;
+ }
+
+ /* CART */
+
+ .cart-item img{
+  width: 100px;
+  height: 70px;
+  display: inline-block;
+ }
+
+ .cart-item p{
+   display: inline;
+ }
+
+.total-price h1{
+  display: inline;
+}
+
+.checkout-div ul{
+  float: right;
+}
+
+.checkout-div{
+  width: 85%;
+  margin: 0 auto;
+}
+
+.checkout-div li {
+  display: inline-block;
+}
+
+.checkout-div .checkout-cart {
+  padding: 8px 16px;
+  background: #357ae0;
+  text-transform: uppercase;
+  width: 240px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.checkout-div .more-food {
+  padding: 8px 16px;
+  background: #fff;
+  text-transform: uppercase;
+  width: 240px;
+  border: 2px solid #357ae0;
+  color: #357ae0;
+  font-weight: bold;
+}
+
+.cart-item .delete-icon{
+  width: 30px;
+  height: 20px;
 }
 
 /* FOOTER */

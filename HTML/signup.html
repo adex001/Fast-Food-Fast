@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas|Princess+Sofia" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Signin to Fast Food! </title>
+  <title>Signup to Fast Food! </title>
 </head>
 <body>
   <header>
@@ -20,21 +20,35 @@
           <li><a href="./signin.html">Services</a></li>
           <li><a href="./signin.html">About us</a></li>
           <li><a href="./signin.html">Careers</a></li>
-          <li class="current"><a href="./signin.html">Sign in</a></li>
-          <li><a href="./signup.html">Sign up</a></li>
+          <li><a href="./signin.html">Sign in</a></li>
+          <li class="current"><a href="./signup.html">Sign up</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <section id="signin">
+  <section id="signup">
     <div class="container">
       <form>
-        <h1>Sign in to Fast Food Fast</h1>
+        <h1>Sign up to Fast Food Fast</h1>
         <label class="label" for="email">Email:</label>
         <input class="form-data" type="email" placeholder="Email Address here">
+        <label class="label" for="firstname">Firstname:</label>
+        <input class="form-data" type="text" placeholder="Email Firstname here">
+        <label class="label" for="lastname">Lastname:</label>
+        <input class="form-data" type="text" placeholder="Email Lastname here">
         <label class="label" for="password">Password:</label>
         <input class="form-data" type="password" placeholder="Enter password">
+        <label class="label" for="password2">Re-Enter Password:</label>
+        <input class="form-data" type="password" placeholder="Enter password again"><br>
+        <div>
+          <p>Do you want to signup as an admin? </p> 
+          <select name="admin">
+            <option value="no">no</option>
+            <option value="admin">yes</option>
+          </select>
+        </div>
         <input type="submit" value="Sign in" class="form-submit">
+        <p>Already registered?</p><a href="./signin.html">sign in</a>
       </form>
     </div>
   </section>

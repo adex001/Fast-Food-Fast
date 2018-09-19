@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container{
+  width: 80%;
+}
+
+#navbar{
+  width: 20%;
+  float: left;
+  border: 1px solid green;
+}
+
+ .brand{
+  margin: 0 auto;
+  }
+
+#navbar .brand img{
+  width: 150px;
+  height: 100px;
+}
+
+.user img{
+  width: 150px;
+  height: 120px;
+}
+
+#navbar a{
+  text-decoration: none;
+  color: #333232;
+}
+#navbar .user p{
+  text-align: center;
+}
