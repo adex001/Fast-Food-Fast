@@ -26,7 +26,7 @@ class OrderController {
     } else {
       res.status(404).json({
         status: 'failed',
-        reason: 'Order not found!',
+        message: 'Order not found!',
       });
     }
   }
@@ -44,7 +44,7 @@ class OrderController {
       users: users[userId],
       meals,
       orderStatus,
-      totalPrice: totalPrice || 2500,
+      totalPrice,
     };
 
     // Push to the orders array
@@ -71,24 +71,19 @@ class OrderController {
       } = req.body;
       found.meals = meals;
       found.orderStatus = orderStatus;
-      found.totalPrice = totalPrice || found.totalPrice;
+      found.totalPrice = totalPrice;
 
       res.status(200).json({
-        message: 'Updates a specific order',
+        message: 'Order was updated',
         data: found,
       });
     } else {
       res.status(404).json({
         status: 'false',
-        error: 'Order not found!',
+        message: 'Order not found!',
       });
     }
   }
-
-  // Delete an order
-  // static deleteOrder(req, res){
-
-  // }
 }
 
 export default OrderController;

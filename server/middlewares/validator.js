@@ -38,7 +38,7 @@ class Validator {
       // Return an error below
         return res.status(400).json({
           status: 'false',
-          message: 'Meals is not an array!',
+          message: 'Meals should be an array!',
         });
       }
     } else {
