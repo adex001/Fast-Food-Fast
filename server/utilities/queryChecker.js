@@ -1,7 +1,7 @@
 import pool from '../database/connectdatabase';
 
-const checker = ((param, check, table) => {
-  const query = `SELECT * FROM ${table} WHERE ${param} = ${check}`;
+const emailChecker = ((check) => {
+  const query = `SELECT * FROM users WHERE email = '${check}'`;
   pool.query(query, (err, result) => {
     if (result) {
       return true;
@@ -11,4 +11,4 @@ const checker = ((param, check, table) => {
   return false;
 });
 
-export default checker;
+export default emailChecker;

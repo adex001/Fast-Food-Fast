@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 
 import ordersRoute from './routes/orders';
 import foodRoute from './routes/foodItem';
+import authRoute from './routes/auth';
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const app = express();
 const port = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/orders', ordersRoute);
 app.use('/api/v1/fooditem', foodRoute);
 
