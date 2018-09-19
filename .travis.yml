@@ -19,8 +19,5 @@ script:
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
-notifications:
-  email: true
-
 after_success: 'npm run coverage'
 after_fail: 'npm run coverage'
