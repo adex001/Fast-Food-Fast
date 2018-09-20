@@ -1,11 +1,12 @@
 import orders from '../dummymodel/orders';
+import users from '../dummymodel/users';
 
 class OrderController {
   // COntroller to fetch all orders
   static getAllOrders(req, res) {
     res.status(200).json({
-      message: 'Gets all orders!!',
-      orders,
+      status: 'success',
+      data: orders,
     });
   }
 
@@ -19,11 +20,12 @@ class OrderController {
 
     if (found) {
       res.status(200).json({
-        message: 'Fetches a single order',
-        found,
+        status: 'success',
+        data: found,
       });
     } else {
       res.status(404).json({
+        status: 'failed',
         message: 'Order not found!',
       });
     }
@@ -31,19 +33,27 @@ class OrderController {
 
   // Controller to place a single order
   static addOrder(req, res) {
-    const { ordersId, meals } = req.body;
-
+    const {
+      meals, orderStatus, totalPrice,
+    } = req.body;
+    // Checks the parameters in the meal array
+    const userId = 1;
     const orderObject = {
-      ordersId,
+      ordersId: orders.length + 1,
       ordersDate: new Date(),
+      users: users[userId],
       meals,
+      orderStatus,
+      totalPrice,
     };
 
     // Push to the orders array
     orders.push(orderObject);
 
     return res.status(201).json({
-      message: 'place a single order',
+      status: 'success',
+      message: 'Order was placed',
+      data: orderObject,
     });
   }
 
@@ -56,14 +66,20 @@ class OrderController {
 
     if (found) {
       // Update the order
-      const { meals } = req.body;
+      const {
+        meals, orderStatus, totalPrice,
+      } = req.body;
       found.meals = meals;
+      found.orderStatus = orderStatus;
+      found.totalPrice = totalPrice;
+
       res.status(200).json({
-        message: 'Updates a specific order',
-        found,
+        message: 'Order was updated',
+        data: found,
       });
     } else {
       res.status(404).json({
+        status: 'false',
         message: 'Order not found!',
       });
     }
