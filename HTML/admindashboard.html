@@ -9,38 +9,36 @@
   <title>Welcome Admin Adeoye! </title>
 </head>
 <body>
-  <section id="navbar">
-    <div class="container">
-      <div class="user">
-          <a href=""><img src="../images/user-icon.png" >Admin Adeoye</a>
+    <header>
+      <div class="container">
+        <div class="brand">
+          <a href="../index.html"><img src="../images/fast_food_logo.jpg" alt="Food logo"></a>
+        </div>
+        <nav>
+          <ul>
+            <li class="current"><a href="./admindashboard.html">Home</a></li>
+            <li><a href="./adminfooditem.html">Food Items</a></li>
+            <li><a href="../index.html">Logout</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li><a href=""> Dashboard</a></li>
-          <li><a href="./admin-orders.html">Orders</a></li>
-          <li><a href="./adminfooditem.html">FOOD ITEMS</a></li>
-          <li><a href="../index.html">Logout</a></li>
-
-        </ul>
-      </nav>
-    </div>
-  </section>
+    </header>
   <section id="main-section">
     <div class="container">
       <h2>Incoming Orders</h2>
-      <table>
+      <table> 
         <tr>
-          <th>Order Date</th>
-          <th>Order Number</th>
-          <th class="order-decp">Order Description</th>
-          <th>Total Price</th>
+          <th class="o_date">Order Date</th>
+          <th class="o_no">Order Number</th>
+          <th class="o_desc">Order Description</th>
+          <th class="o_tprice">Total Price</th>
           <th>Order Status</th>
         </tr>
         <tr>
-          <td>19/9/2018 8:30AM</td>
-          <td><a href="">#723523869</a></td>
-          <td>Combo Amala with Gbegiri</td>
-          <td>500</td>
+            <td class="o_date">19/9/2018 8:30AM</td>
+            <td><a href="">#723523869</a></td>
+            <td>Combo Amala with Gbegiri</td>
+            <td class="o_tprice">500</td>
           <td><select class="order-status orange">
             <option class="orange" value="Processing">Processing</option>
             <option class="green" value="Complete">Complete</option>
@@ -48,10 +46,10 @@
           </select></td>
         </tr>
         <tr>
-          <td>19/9/2018 8:30AM</td>
-          <td><a href="">#723523869</a></td>
-          <td>Combo Amala with Gbegiri</td>
-          <td>500</td>
+            <td class="o_date">19/9/2018 8:30AM</td>
+            <td><a href="">#723523869</a></td>
+            <td>Combo Amala with Gbegiri</td>
+            <td class="o_tprice">500</td>
           <td><select class="order-status green">
               <option class="orange" value="Processing">Processing</option>
               <option class="green" value="Complete" selected>Complete</option>
@@ -59,10 +57,10 @@
             </select></td>
         </tr>
         <tr>
-          <td>19/9/2018 8:30AM</td>
-          <td><a href="">#723523869</a></td>
-          <td>Combo Amala with Gbegiri</td>
-          <td>500</td>
+            <td class="o_date">19/9/2018 8:30AM</td>
+            <td><a href="">#723523869</a></td>
+            <td>Combo Amala with Gbegiri</td>
+            <td class="o_tprice">500</td>
           <td><select class="order-status red">
               <option class="orange" value="Processing">Processing</option>
               <option class="green" value="Complete">Complete</option>
@@ -70,10 +68,10 @@
             </select></td>
         </tr>
         <tr>
-          <td>19/9/2018 8:30AM</td>
-          <td><a href="">#723523869</a></td>
-          <td>Combo Amala with Gbegiri</td>
-          <td>500</td>
+            <td class="o_date">19/9/2018 8:30AM</td>
+            <td><a href="">#723523869</a></td>
+            <td>Combo Amala with Gbegiri</td>
+            <td class="o_tprice">500</td>
           <td><select class="order-status green">
               <option class="orange" value="Processing">Processing</option>
               <option class="green" selected value="Complete">Complete</option>
@@ -81,10 +79,10 @@
             </select></td>
         </tr>
         <tr>
-            <td>19/9/2018 8:30AM</td>
+            <td class="o_date">19/9/2018 8:30AM</td>
             <td><a href="">#723523869</a></td>
             <td>Combo Amala with Gbegiri</td>
-            <td>500</td>
+            <td class="o_tprice">500</td>
             <td><select class="order-status orange">
               <option class="orange" value="Processing">Processing</option>
               <option class="green" value="Complete">Complete</option>
@@ -92,10 +90,10 @@
             </select></td>
           </tr>
           <tr>
-            <td>19/9/2018 8:30AM</td>
-            <td><a href="">#723523869</a></td>
-            <td>Combo Amala with Gbegiri</td>
-            <td>500</td>
+              <td class="o_date">19/9/2018 8:30AM</td>
+              <td><a href="">#723523869</a></td>
+              <td>Combo Amala with Gbegiri</td>
+              <td class="o_tprice">500</td>
             <td><select class="order-status green">
                 <option class="orange" value="Processing">Processing</option>
                 <option class="green" value="Complete" selected>Complete</option>
@@ -103,10 +101,10 @@
               </select></td>
           </tr>
           <tr>
-            <td>19/9/2018 8:30AM</td>
-            <td><a href="">#723523869</a></td>
-            <td>Combo Amala with Gbegiri</td>
-            <td>500</td>
+              <td class="o_date">19/9/2018 8:30AM</td>
+              <td><a href="">#723523869</a></td>
+              <td>Combo Amala with Gbegiri</td>
+              <td class="o_tprice">500</td>
             <td><select class="order-status red">
                 <option class="orange" value="Processing">Processing</option>
                 <option class="green" value="Complete">Complete</option>
@@ -114,10 +112,10 @@
               </select></td>
           </tr>
           <tr>
-            <td>19/9/2018 8:30AM</td>
-            <td><a href="">#723523869</a></td>
-            <td>Combo Amala with Gbegiri</td>
-            <td>500</td>
+              <td class="o_date">19/9/2018 8:30AM</td>
+              <td><a href="">#723523869</a></td>
+              <td>Combo Amala with Gbegiri</td>
+              <td class="o_tprice">500</td>
             <td><select class="order-status green">
                 <option class="orange" value="Processing">Processing</option>
                 <option class="green" selected value="Complete">Complete</option>
