@@ -7,7 +7,7 @@ class Validator {
     if (orderStatus === 'Pending' || orderStatus === 'Cancelled' || orderStatus === 'Delivered') {
       if (typeof totalPrice === 'undefined' || typeof totalPrice !== 'number' || totalPrice < 0) {
         return res.status(400).json({
-          status: 'false',
+          status: 'failed',
           message: 'Total price should be a number greater than zero',
         });
       }
@@ -24,20 +24,20 @@ class Validator {
             }
             // Give error when mealsId or quantity is not a number
             return res.status(400).json({
-              status: 'false',
+              status: 'failed',
               message: 'Meal or quantity is not a number or less than 1!',
             });
           }
           // Give error when it is not an object
           return res.status(400).json({
-            status: 'false',
+            status: 'failed',
             message: 'Meal is not an object!',
           });
         });
       } else {
       // Return an error below
         return res.status(400).json({
-          status: 'false',
+          status: 'failed',
           message: 'Meals should be an array!',
         });
       }

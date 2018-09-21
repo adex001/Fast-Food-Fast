@@ -8,7 +8,11 @@ env:
   global:
     - CC_TEST_REPORTER_ID=664001952d6b2b65d1b7ef159f1352a69b3bac46ad3b3ccd159c2390e29c9256
 
+services:
+  - postgresql
+
 before_script:
+  - psql -c 'create database Fast-Food-Fast;' -U postgres
   - npm install nyc
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter

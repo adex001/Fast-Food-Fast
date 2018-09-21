@@ -39,6 +39,7 @@ const createUserTable = `CREATE TABLE IF NOT EXISTS users (
 
 pool.query(createUserTable, () => {
   console.log('User Table Created!!');
+  console.log(process.env.NODE_ENV);
 });
 
 export default pool;
