@@ -460,6 +460,19 @@ form select{
   .container{
     width: 100%;
   }
+  header .brand {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+  header nav{
+    float: none;
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 120px;
+    padding: 10px;
+    line-height: 30px;
+  }
   header li, .hamburg{
     display: block;
   }
@@ -514,7 +527,19 @@ form select{
   header li, .hamburg{
     display: block;
   }
-  
+  header nav{
+    float: none;
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 120px;
+    padding: 10px;
+    line-height: 30px;
+  }
+  header .brand {
+    float: left;
+    width: 30%;
+    text-align: center;
+}
   .toggler{
     display: none;
   }
