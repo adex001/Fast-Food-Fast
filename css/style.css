@@ -27,6 +27,14 @@ header{
   border-bottom: 3px solid #1e29c5;
   background: #ffffff;
 }
+.hamburg{
+  display: none;
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
 
 header a{
   text-decoration: none;
@@ -373,6 +381,29 @@ footer p {
 }
 
 @media (min-width: 200px) and (max-width:400px)  {
+  header nav{
+    float: none;
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 120px;
+    padding: 10px;
+    line-height: 30px;
+  }
+  header .brand {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+header li, .hamburg{
+  display: block;
+}
+
+.toggler{
+  display: none;
+}
+.hamburg:hover + .toggler{
+  display: block;
+}
 .container{
   width: 100%;
 }
@@ -429,6 +460,16 @@ form select{
   .container{
     width: 100%;
   }
+  header li, .hamburg{
+    display: block;
+  }
+  
+  .toggler{
+    display: none;
+  }
+  .hamburg:hover + .toggler{
+    display: block;
+  }
   .intro{
     min-height: 200px;
   }
@@ -469,6 +510,16 @@ form select{
   .container{
     width: 90%;
     margin: 0 auto;
+  }
+  header li, .hamburg{
+    display: block;
+  }
+  
+  .toggler{
+    display: none;
+  }
+  .hamburg:hover + .toggler{
+    display: block;
   }
   .intro{
     min-height: 300px;
