@@ -1,37 +1,177 @@
 *{
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+}
+ul {
+  list-style-type: none;
 }
 
 .container{
   width: 80%;
+  margin: 0 auto;
 }
 
 #navbar{
   width: 20%;
   float: left;
-  border: 1px solid green;
+  height: 400px;
 }
 
- .brand{
-  margin: 0 auto;
-  }
+#navbar li {
+  list-style: none;
+  margin-bottom: 10px;
+}
 
-#navbar .brand img{
-  width: 150px;
-  height: 100px;
+.user{
+  margin: 20px auto;
+
 }
 
 .user img{
-  width: 150px;
-  height: 120px;
+  width: 40%;
+  height: auto;
+  margin-left: 10%;
 }
 
 #navbar a{
   text-decoration: none;
   color: #333232;
-}
-#navbar .user p{
+  font-weight: bolder;
   text-align: center;
+}
+
+
+/* MAIN SECTION */
+
+#main-section {
+  width: 80%;
+  float: right;
+  border: 1px solid red;
+  background: #e0e0e0;
+  height: 100%;
+  margin: 0;
+}
+
+#main-section h2 {
+  width: 40%;
+  margin: 30px auto;
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #357ae0;
+}
+
+#main-section table {
+  margin: auto;
+}
+
+#main-section table th{
+  width: 150px;
+  margin-right: 5px;
+  padding: 3px 10px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 16px;
+}
+#main-section table th .order-desp{
+  width: 100%;
+}
+
+#main-section table td {
+ text-align: center;
+ padding-bottom: 10px;
+}
+
+.order-status{
+  padding: 3px;
+}
+.orange {
+  color: orange;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+
+/* FOOD */
+
+.food {
+  width: 22%;
+  padding: 5px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background: #cfcfcfec;
+  margin: 3px;
+  display: inline-block;
+}
+
+.food:hover{
+  border: 2px solid #357ae0;
+}
+
+.food img {
+  width: 100%;
+  height: 250px;
+}
+
+.food .order-price {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.modify{
+  padding: 4px 12px;
+  color: green;
+  background: #ffffff;
+  border: 1px solid green;
+  float: left;
+}
+.delete{
+  padding: 4px 12px;
+  color: red;
+  background: #ffffff;
+  border: 1px solid red;
+  float: right;
+}
+.modify:hover{
+  font-weight: bold;
+  padding: 5px 15px;
+}
+.delete:hover{
+  font-weight: bold;
+  padding: 5px 15px;
+}
+
+/* FOOD ITEM */
+
+.myform {
+  width: 90%;
+}
+.myform label {
+  font-size: 20px;
+  font-weight: bold;
+  width: 30%;
+  float: left;
+  text-align: right;
+}
+.myform .forminput{
+  padding: 5px 15px;
+  width: 65%;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+.addfooditem {
+  width: 30%;
+  color: green;
+  background: #ffffff;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 35% 0 40%;
+}
+/* FOOTER  */
+
+footer p{
+  font-size: 10px;
+  text-align: center;
+  clear: both;
 }
