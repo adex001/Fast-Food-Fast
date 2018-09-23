@@ -44,5 +44,41 @@ class AuthController {
     });
     return null;
   }
+
+  /**
+ * Signin function signs a user to the app
+ * @param {string} req - The request to the server
+ * @param {string} res - The response from the server.
+ */
+  static signin(req, res) {
+    const { email, password } = req.body;
+    const signinQuery = `SELECT * FROM users WHERE email = '${email}'`;
+    pool.query(signinQuery, (err, result) => {
+      if (result.rowCount < 1) {
+        return res.status(401).json({
+          status: 'failed',
+          message: 'Email does not exist',
+        });
+      }
+      const decryptPassword = bcrypt.compareSync(password, result.rows[0].password);
+      if (!decryptPassword) {
+        return res.status(401).json({
+          status: 'failed',
+          message: 'Login failed',
+        });
+      }
+      const userData = {
+        userId: result.rows[0].userId,
+        firstname: result.rows[0].firstname,
+        isAdmin: result.rows[0].isadmin,
+      };
+      const token = TokenHandler.createToken(userData);
+      return res.status(200).json({
+        status: 'success',
+        message: 'user authenticated and signed in',
+        token,
+      });
+    });
+  }
 }
 export default AuthController;
