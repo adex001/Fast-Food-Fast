@@ -1,5 +1,13 @@
-// Order Validator
+/**
+Validator class.
+ */
 class Validator {
+  /**
+ * mealValidator middleware validates the order status of a meal
+ * @param {string} req - The request to the server
+ * @param {string} res - The response from the server.
+ * @param {function} next - Passes the next middleware
+ */
   static mealValidator(req, res, next) {
     const {
       meals, orderStatus, totalPrice,

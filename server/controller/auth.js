@@ -6,7 +6,7 @@ import TokenHandler from '../middlewares/tokenHandler';
  * Represents the AuthController Class.
  */
 class AuthController {
-  /**
+/**
  * Signup Controller
  * @param {string} req - The request to the server
  * @param {string} res - The response from the server.
