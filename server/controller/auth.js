@@ -2,7 +2,15 @@ import bcrypt from 'bcrypt';
 import pool from '../database/connectdatabase';
 import TokenHandler from '../middlewares/tokenHandler';
 
+/**
+ * Represents the AuthController Class.
+ */
 class AuthController {
+  /**
+ * Signup Controller
+ * @param {string} req - The request to the server
+ * @param {string} res - The response from the server.
+ */
   static signup(req, res) {
     const {
       email, password, lastname, firstname, isAdmin,

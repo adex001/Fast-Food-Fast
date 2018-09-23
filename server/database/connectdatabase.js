@@ -12,14 +12,14 @@ const databaseConfig = {
 };
 
 const testConfig = {
-  database: process.env.DB_NAME1,
-  host: process.env.DB_HOST1,
-  user: process.env.DB_USER1,
-  password: process.env.DB_PASSWORD1,
-  port: process.env.DB_PORT1,
+  database: process.env.TEST_DB_NAME,
+  host: process.env.TEST_DB_HOST,
+  user: process.env.TEST_DB_USER,
+  password: process.env.TEST_DB_PASSWORD,
+  port: process.env.TEST_DB_PORT,
 };
 
-const pool = (process.env.NODE_ENV === 'test') ? new pg.Pool(testConfig) : new pg.Pool(databaseConfig);
+const pool = process.env.NODE_ENV === 'test' ? new pg.Pool(testConfig) : new pg.Pool(databaseConfig);
 
 const createUserTable = `CREATE TABLE IF NOT EXISTS users (
   userId serial PRIMARY KEY,
