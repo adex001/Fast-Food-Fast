@@ -1,4 +1,5 @@
 import users from './users';
+import meals from './meals';
 
 const orders = [
   {
@@ -6,11 +7,11 @@ const orders = [
     ordersDate: '14/9/2018 1:36AM',
     user: users[0],
     meals: [{
-      mealId: 1,
+      meal: meals[0],
       quantity: 3,
     },
     {
-      mealId: 2,
+      meal: meals[1],
       quantity: 4,
     },
     ],
@@ -22,11 +23,11 @@ const orders = [
     ordersDate: '14/9/2018 1:39AM',
     user: users[1],
     meals: [{
-      mealId: 3,
+      meal: meals[2],
       quantity: 1,
     },
     {
-      mealId: 1,
+      meal: meals[0],
       quantity: 2,
     },
     ],
@@ -38,11 +39,11 @@ const orders = [
     ordersDate: '14/9/2018 1:39AM',
     user: users[0],
     meals: [{
-      mealId: 2,
+      meal: meals[1],
       quantity: 3,
     },
     {
-      mealId: 2,
+      meal: meals[3],
       quantity: 1,
     },
     ],

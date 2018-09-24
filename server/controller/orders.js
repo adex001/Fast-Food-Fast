@@ -79,7 +79,7 @@ class OrderController {
       });
     } else {
       res.status(404).json({
-        status: 'false',
+        status: 'failed',
         message: 'Order not found!',
       });
     }
