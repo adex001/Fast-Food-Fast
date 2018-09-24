@@ -15,6 +15,13 @@ describe('Auth Controller Signup Test', () => {
     lastname: 'Tester',
     isAdmin: true,
   };
+  const correctSignupDetails2 = {
+    email: 'tester2@gmail.com',
+    password: 'password',
+    firstname: 'Testing',
+    lastname: 'Tester',
+    isAdmin: false,
+  };
   const serverErrorDetails = {
     email: 'testererror@gmail.com',
     password: 'password',
@@ -28,6 +35,18 @@ describe('Auth Controller Signup Test', () => {
       .post('/api/v1/auth/signup')
       .set('Accept', 'application/json')
       .send(correctSignupDetails)
+      .end((err, response) => {
+        response.should.have.status(201);
+        response.body.status.should.eql('success');
+        response.body.message.should.eql('User Registered and signed in');
+        done();
+      });
+  });
+  it('Tests to signup successfully', (done) => {
+    chai.request(app)
+      .post('/api/v1/auth/signup')
+      .set('Accept', 'application/json')
+      .send(correctSignupDetails2)
       .end((err, response) => {
         response.should.have.status(201);
         response.body.status.should.eql('success');
