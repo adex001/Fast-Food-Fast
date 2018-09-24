@@ -9,6 +9,15 @@ CREATE TABLE IF NOT EXISTS users (
   city varchar(40),
   state varchar(30),
   country varchar(30),
+  isAdmin boolean NOT NULL DEFAULT FALSE,
   timeUserRegistered TIMESTAMP NOT NULL DEFAULT NOW()
 
+)
+
+CREATE TABLE IF NOT EXISTS menu (
+  mealId serial PRIMARY KEY,
+  mealName varchar(50) UNIQUE,
+  mealImageUrl varchar(300),
+  mealDescription varchar (300),
+  mealPrice DECIMAL
 )
