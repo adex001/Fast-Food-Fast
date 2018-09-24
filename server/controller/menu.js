@@ -31,6 +31,29 @@ class MenuController {
       }
     });
   }
+
+  /**
+ * getAllFoodItems retrieves all food-items from the menu database
+ * @param {string} req - The request to the server
+ * @param {string} res - The response from the server.
+ */
+  static getAllFoodItems(req, res) {
+    const getAllFoodItemsQuery = 'SELECT * FROM menu';
+    pool.query(getAllFoodItemsQuery, (err, result) => {
+      if (result.rowCount < 1) {
+        return res.status(404).json({
+          status: 'success',
+          message: 'It\'s empty here! Add a meal item now',
+        });
+      }
+      return res.status(200).json({
+        status: 'success',
+        message: 'All food items successfully retrieved',
+        data: result.rows,
+      });
+    });
+    return null;
+  }
 }
 
 export default MenuController;

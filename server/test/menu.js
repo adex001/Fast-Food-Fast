@@ -11,7 +11,7 @@ let adminToken = null;
 let userToken = null;
 const wrongToken = 'jkwvweocneovnweovnwkvkwdnvewvewlkjewgew.ewgewgwekjgowehgowqehgqewgwegwqegeq.qrghrgkhwdiohgwuge';
 
-describe('Test for Menu', () => {
+describe('Test for Add Menu', () => {
   const adminLoginDetails = {
     email: 'tester@gmail.com',
     password: 'password',
@@ -19,7 +19,7 @@ describe('Test for Menu', () => {
   const userLoginDetails = {
     email: 'tester2@gmail.com',
     password: 'password',
-  }
+  };
   const correctMenuItem = {
     mealName: 'eba and abula',
     mealImageUrl: 'http://mealImageId.com/image1',
@@ -39,6 +39,17 @@ describe('Test for Menu', () => {
       .send(adminLoginDetails)
       .end((err, response) => {
         adminToken = response.body.token;
+        done();
+      });
+  });
+  it('It should retrieve no item', (done) => {
+    chai.request(app)
+      .get('/api/v1/menu')
+      .set('Accept', 'application/json')
+      .end((err, response) => {
+        response.should.have.status(404);
+        response.body.status.should.eql('success');
+        response.body.message.should.eql('It\'s empty here! Add a meal item now');
         done();
       });
   });
@@ -114,6 +125,21 @@ describe('Test for Menu', () => {
         response.should.have.status(403);
         response.body.status.should.eql('failed');
         response.body.message.should.eql('You do not have the permission to access this resource!');
+        done();
+      });
+  });
+});
+
+describe('Test for Get Menu', () => {
+  it('It should retrieve all meals from the database', (done) => {
+    chai.request(app)
+      .get('/api/v1/menu')
+      .set('Accept', 'application/json')
+      .end((err, response) => {
+        response.should.have.status(200);
+        response.body.status.should.eql('success');
+        response.body.message.should.eql('All food items successfully retrieved');
+        response.body.data.should.be.an('array');
         done();
       });
   });
