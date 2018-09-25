@@ -144,3 +144,25 @@ describe('Test for Get Menu', () => {
       });
   });
 });
+
+describe('Test for Update Meal from the Menu', () => {
+  const correctUpdateObject = {
+    mealName: 'Yam and egg',
+    mealImageUrl: 'http://mealImageId.com/yamandegg',
+    mealDescription: 'A very delicious food',
+    mealPrice: 350,
+  };
+  it('It should not update a meal if not admin', (done) => {
+    chai.request(app)
+      .put('/api/v1/menu/1')
+      .set('Accept', 'application/json')
+      .set('token', userToken)
+      .send(correctUpdateObject)
+      .end((err, response) => {
+        response.should.have.status(403);
+        response.body.status.should.eql('failed');
+        response.body.message.should.eql('You do not have the permission to access this resource!');
+        done();
+      });
+  });
+});

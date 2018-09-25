@@ -54,6 +54,34 @@ class MenuController {
     });
     return null;
   }
+
+  /**
+  * UpdateFoodItem Controller updates a meal in the database
+  * @param {string} req - The request to the server
+  * @param {string} res - The response from the server.
+  */
+  static updateFoodItem(req, res) {
+    const { mealId } = parseInt(req.params, 10);
+    const {
+      mealName, mealImageUrl, mealDescription, mealPrice,
+    } = req.body;
+    const updateMealQuery = `UPDATE menu SET mealName = '${mealName}', mealImageUrl = '${mealImageUrl}', mealDescription = '${mealDescription}', mealPrice = '${mealPrice}' WHERE mealId = ${mealId} RETURNING *;`;
+    pool.query(updateMealQuery, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: 'failed',
+          message: 'internal server error',
+        });
+      }
+      if (result.rowCount > 0) {
+        return res.status(200).json({
+          status: 'success',
+          message: 'Meal has been updated in the menu',
+          data: result.rows[0],
+        });
+      }
+    });
+  }
 }
 
 export default MenuController;

@@ -6,6 +6,7 @@ import TokenHandler from '../middlewares/tokenHandler';
 const menuRoute = Router();
 
 menuRoute.post('/', TokenHandler.verifyToken, TokenHandler.isAdmin, MenuController.createMeal)
-  .get('/', MenuController.getAllFoodItems);
+  .get('/', MenuController.getAllFoodItems)
+  .put('/:mealId', TokenHandler.verifyToken, TokenHandler.isAdmin, MenuController.updateFoodItem);
 
 export default menuRoute;
