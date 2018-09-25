@@ -94,7 +94,7 @@ describe('Auth Controller Signin TEst', () => {
   };
   it('Signin to the app with correct details', (done) => {
     chai.request(app)
-      .post('/api/v1/auth/signin')
+      .post('/api/v1/auth/login')
       .set('Accept', 'application/json')
       .send(correctSigninDetails)
       .end((err, response) => {
@@ -107,7 +107,7 @@ describe('Auth Controller Signin TEst', () => {
   });
   it('Not Signin to the app with incorrect email', (done) => {
     chai.request(app)
-      .post('/api/v1/auth/signin')
+      .post('/api/v1/auth/login')
       .set('Accept', 'application/json')
       .send(incorrectSigninDetails)
       .end((err, response) => {
@@ -119,7 +119,7 @@ describe('Auth Controller Signin TEst', () => {
   });
   it('Not Signin to the app with incorrect password', (done) => {
     chai.request(app)
-      .post('/api/v1/auth/signin')
+      .post('/api/v1/auth/login')
       .set('Accept', 'application/json')
       .send(incorrectSigninDetails2)
       .end((err, response) => {

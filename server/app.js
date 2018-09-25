@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import ordersRoute from './routes/orders';
 import authRoute from './routes/auth';
 import menuRoute from './routes/meal';
+import salesRoute from './routes/sales';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/orders', ordersRoute);
 app.use('/api/v1/menu', menuRoute);
+app.use('/api/v1/sales', salesRoute);
 
 app.get('/', (req, res) => {
   res.status(200).json({

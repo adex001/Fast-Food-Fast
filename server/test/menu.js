@@ -34,7 +34,7 @@ describe('Test for Add Menu', () => {
   };
   it('Logins an admin account to get the token', (done) => {
     chai.request(app)
-      .post('/api/v1/auth/signin')
+      .post('/api/v1/auth/login')
       .set('Accept', 'application/json')
       .send(adminLoginDetails)
       .end((err, response) => {
@@ -55,7 +55,7 @@ describe('Test for Add Menu', () => {
   });
   it('Logins an user account to get the token', (done) => {
     chai.request(app)
-      .post('/api/v1/auth/signin')
+      .post('/api/v1/auth/login')
       .set('Accept', 'application/json')
       .send(userLoginDetails)
       .end((err, response) => {

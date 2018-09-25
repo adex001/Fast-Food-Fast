@@ -43,9 +43,25 @@ const createMenuTable = `CREATE TABLE IF NOT EXISTS menu (
   mealDescription varchar (300),
   mealPrice DECIMAL
 )`;
+const createOrdersTable = `CREATE TABLE IF NOT EXISTS orders(
+  ordersId serial PRIMARY KEY,
+  orderDate TIMESTAMP NOT NULL DEFAULT NOW(),
+  userId serial REFERENCES users(userId),
+  sales INTEGER[] NOT NULL,
+  orderStatus varchar(30)
+)`;
 
-pool.query(`${createUserTable}; ${createMenuTable};`, () => {
-  console.log('User Table and Menu Table Created!!');
+const createSalesTable = `CREATE TABLE IF NOT EXISTS sales(
+  salesId serial PRIMARY KEY,
+  menuId serial REFERENCES menu(mealId),
+  userId serial REFERENCES users(userId),
+  quantity INTEGER DEFAULT 1,
+  totalPrice DECIMAL,
+  salesConfirmed boolean DEFAULT FALSE
+)`;
+
+pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable}; ${createSalesTable}`, () => {
+  console.log('Users Table, Menu Table, Sales Table and Orders Table Created!!');
   console.log(process.env.NODE_ENV);
 });
 
