@@ -201,48 +201,56 @@ section {
   width: 100%;
   margin: 0 auto;
   font-weight: bold;
+  color: #fff;
 }
 
 #signin form h1, #signup form h1{
   text-align: center;
-
-}
-
-form label {
-  display: block;
-  padding: 10px 0;
-
+  font-weight: bolder;
 }
 
 form a{
-  color: #357ae0;
+  color: #a9c8f7;
   text-decoration: none;
   padding-left: 10px;
 }
 
 form p{
   display: inline;
+  margin-left: 25px;
 }
 
 form select{
   display: inline-block;
   width: 100px;
   margin: 0 20px;
+  padding: 2px;
   border: 1px solid #357ae0;
 }
 #form-container{
-  width: 50%;
+  width: 30%;
   margin: 10% auto;
-  background: #fefefe;
+  background: rgba(13, 54, 236, 0.459);
   padding: 5px; 
+  border-radius: 15px;
+}
+::placeholder{
+  color: white;
+  opacity: 1;
 }
 
 form .form-data{
-  padding: 5px;
-  width: 99%;
-  margin: auto;
-  border-radius: 8px;
+  padding: 10px ;
+  width: 90%;
+  margin: 15px auto;
   border: none;
+  display: block;
+  background: transparent;
+  border-radius: 5px;
+}
+
+form .form-data:hover{
+border: 1px solid white;
 }
 
 form .form-submit{
@@ -254,6 +262,15 @@ form .form-submit{
   border: none;
   outline: none;
   color: #357ae0;
+}
+
+#services{
+  color: #fff;
+}
+
+#services h1 {
+  margin: 50px;
+  text-align: center;
 }
 
 /* QUICKTALK */
