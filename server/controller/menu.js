@@ -62,10 +62,13 @@ class MenuController {
   */
   static updateFoodItem(req, res) {
     const { mealId } = parseInt(req.params, 10);
-    const {
-      mealName, mealImageUrl, mealDescription, mealPrice,
-    } = req.body;
-    const updateMealQuery = `UPDATE menu SET mealName = '${mealName}', mealImageUrl = '${mealImageUrl}', mealDescription = '${mealDescription}', mealPrice = '${mealPrice}' WHERE mealId = ${mealId} RETURNING *;`;
+    const { mealName, mealImageUrl, mealDescription } = req.body;
+    const { mealPrice } = req.body;
+    const updateMealQuery = `UPDATE menu SET mealName = '${mealName}',
+    mealImageUrl = '${mealImageUrl}',
+    mealDescription = '${mealDescription}',
+    mealPrice = '${mealPrice}'
+    WHERE mealId = ${mealId} RETURNING *;`;
     pool.query(updateMealQuery, (err, result) => {
       if (err) {
         return res.status(500).json({
