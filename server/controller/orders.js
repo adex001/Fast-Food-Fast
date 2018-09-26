@@ -5,6 +5,8 @@ import getUser from '../utilities/getUser';
 class OrderController {
   // COntroller to fetch all orders
   static getAllOrders(req, res) {
+    console.log(getUser(1));
+    console.log(getMenu([{ mealId: 1, quantity: 2 }]));
     const allOrdersQuery = 'SELECT * FROM orders';
     pool.query(allOrdersQuery, (err, result) => {
       if (result.rowCount < 0) {
@@ -24,9 +26,7 @@ class OrderController {
           totalPrice: order.totalprice,
           user: getUser(order.userid),
           meals: getMenu(order.meals),
-          meals1: order.meals,
         };
-
         orders.push(ordersObject);
       });
       return res.status(200).json({

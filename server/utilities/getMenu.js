@@ -11,11 +11,9 @@ const getMenu = (menuarray) => {
       if (result.rowCount < 1) {
         return 'No such meal';
       }
-      console.log(arr.mealId);
-      data.push(result.rows);
+      data.push(result.rows[0]);
     });
   });
-  console.log(data);
   return data;
 };
-module.exports = getMenu;
+export default getMenu;

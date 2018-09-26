@@ -1,6 +1,6 @@
 import pool from '../database/connectdatabase';
 
-let data = [];
+const data = [];
 const getUser = (userid) => {
   const getUserQuery = `SELECT * FROM users WHERE userid = '${userid}'`;
   pool.query(getUserQuery, (err, result) => {
@@ -10,11 +10,13 @@ const getUser = (userid) => {
     if (result.rowCount < 1) {
       return 'No such user';
     }
-    console.log(userid);
-    console.log(result.rows[0]);
-    data = result.rows;
-    return data;
+    const {
+      email, firstname, lastname, address, city, state, country,
+    } = result.rows[0];
+    data.push({
+      email, firstname, lastname, address, city, state, country,
+    });
   });
   return data;
 };
-module.exports = getUser;
+export default getUser;
