@@ -1,4 +1,5 @@
 import pool from '../database/connectdatabase';
+import Utilities from '../utilities/UtilClass';
 /**
  * OrderController class
  */
@@ -9,10 +10,11 @@ class OrderController {
   * @param {string} res - The response from the server.
   */
   static placeOrder(req, res) {
-    const { meals } = req.body;
-    // meals is a string array referencing cart. [1,3,2,12]
+    const { meals } = req.body; // [{mealId: 1, quantity: 23}]
     const { userId } = req.decoded;
-    const placeOrderQuery = `INSERT INTO orders ( userId, orderStatus, meals) VALUES ('${userId}', 'NEW', '${meals}') RETURNING *`;
+    const totalPrice = Utilities.getTotalPrice(meals);
+    console.log(`totalPrice: ${Utilities.getTotalPrice(meals)}`);
+    const placeOrderQuery = `INSERT INTO orders ( userId, orderStatus, meals, totalPrice) VALUES ('${userId}', 'NEW', '${JSON.stringify(meals)}', '${totalPrice}') RETURNING *`;
     pool.query(placeOrderQuery, (err, result) => {
       if (err) {
         return res.status(500).json({
@@ -21,10 +23,9 @@ class OrderController {
           err,
         });
       }
-      // Go and confirm sales
       return res.status(201).json({
         status: 'success',
-        message: 'An order has been placed',
+        message: 'order has been placed',
         data: result.rows[0],
       });
     });

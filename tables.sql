@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS orders(
   ordersId serial PRIMARY KEY,
   orderDate TIMESTAMP NOT NULL DEFAULT NOW(),
   userId serial REFERENCES users(userId),
-  meals INTEGER [] NOT NULL,
-  totalPrice DECIMAL,
+  meals JSONB NOT NULL,
   orderStatus varchar(30)
+  totalPrice DECIMAL,
 )
 

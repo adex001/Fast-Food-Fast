@@ -34,7 +34,6 @@ const createUserTable = `CREATE TABLE IF NOT EXISTS users (
   country varchar(30),
   isAdmin boolean NOT NULL DEFAULT FALSE,
   timeUserRegistered TIMESTAMP NOT NULL DEFAULT NOW()
-
 )`;
 const createMenuTable = `CREATE TABLE IF NOT EXISTS menu (
   mealId serial PRIMARY KEY,
@@ -47,22 +46,16 @@ const createOrdersTable = `CREATE TABLE IF NOT EXISTS orders(
   ordersId serial PRIMARY KEY,
   orderDate TIMESTAMP NOT NULL DEFAULT NOW(),
   userId serial REFERENCES users(userId),
-  sales INTEGER[] NOT NULL,
-  orderStatus varchar(30)
+  meals JSONB NOT NULL,
+  orderStatus varchar(30),
+  totalPrice DECIMAL
 )`;
 
-const createSalesTable = `CREATE TABLE IF NOT EXISTS sales(
-  salesId serial PRIMARY KEY,
-  menuId serial REFERENCES menu(mealId),
-  userId serial REFERENCES users(userId),
-  quantity INTEGER DEFAULT 1,
-  totalPrice DECIMAL,
-  salesConfirmed boolean DEFAULT FALSE
-)`;
-
-pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable}; ${createSalesTable}`, () => {
-  console.log('Users Table, Menu Table, Sales Table and Orders Table Created!!');
-  console.log(process.env.NODE_ENV);
+pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable};`, (err, res) => {
+  if (res) {
+    console.log('Users Table, Menu Table and Orders Table Created!!');
+    console.log(process.env.NODE_ENV);
+  }
 });
 
 export default pool;
