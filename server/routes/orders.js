@@ -5,6 +5,6 @@ import TokenHandler from '../middlewares/tokenHandler';
 
 const ordersRoute = Router();
 
-ordersRoute.get('/', TokenHandler.isAdmin, OrderController.getAllOrders);
+ordersRoute.get('/', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.getAllOrders);
 
 export default ordersRoute;
