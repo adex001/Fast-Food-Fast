@@ -1,6 +1,7 @@
 import pool from '../database/connectdatabase';
 
 const data = [];
+let obj = null;
 const getUser = (userid) => {
   const getUserQuery = `SELECT * FROM users WHERE userid = '${userid}'`;
   pool.query(getUserQuery, (err, result) => {
@@ -13,10 +14,10 @@ const getUser = (userid) => {
     const {
       email, firstname, lastname, address, city, state, country,
     } = result.rows[0];
-    data.push({
+    obj = {
       email, firstname, lastname, address, city, state, country,
-    });
+    };
   });
-  return data;
+  return obj;
 };
 export default getUser;
