@@ -1,16 +1,10 @@
 import { Router } from 'express';
 
 import OrderController from '../controller/orders';
-import Validator from '../middlewares/validator';
+import TokenHandler from '../middlewares/tokenHandler';
 
 const ordersRoute = Router();
 
-ordersRoute.get('/', OrderController.getAllOrders);
-
-ordersRoute.get('/:ordersId', OrderController.fetchSpecificOrder);
-
-ordersRoute.post('/', Validator.mealValidator, OrderController.addOrder);
-
-ordersRoute.put('/:ordersId', Validator.mealValidator, OrderController.updateOrder);
+ordersRoute.get('/', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.getAllOrders);
 
 export default ordersRoute;
