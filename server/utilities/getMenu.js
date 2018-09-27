@@ -1,5 +1,9 @@
 import pool from '../database/connectdatabase';
 
+/**
+ * @function getMenu
+ * @param {*} menuarray
+ */
 const getMenu = (menuarray) => {
   menuarray.forEach((arr) => {
     return new Promise((resolve) => {

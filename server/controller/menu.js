@@ -1,4 +1,5 @@
 import pool from '../database/connectdatabase';
+import Validator from '../utilities/inputValidator';
 
 /**
  * Menu Controller class deals with all menu functions
@@ -14,6 +15,30 @@ class MenuController {
     const {
       mealName, mealImageUrl, mealDescription, mealPrice,
     } = req.body;
+    if (!Validator.validateString(mealName)) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'Mealname has an invalid parameter',
+      });
+    }
+    if (!Validator.validateString(mealImageUrl)) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'mealImageUrl has an invalid parameter',
+      });
+    }
+    if (!Validator.validateString(mealDescription)) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'Meal Description has an invalid parameter',
+      });
+    }
+    if (Validator.validateInt(mealPrice)) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'Meal Price has an invalid parameter',
+      });
+    }
     const addMealQuery = `INSERT INTO menu (mealName, mealImageUrl, mealDescription, mealPrice) VALUES ('${mealName}', '${mealImageUrl}', '${mealDescription}', '${mealPrice}') RETURNING *;`;
     pool.query(addMealQuery, (err, result) => {
       if (err) {
