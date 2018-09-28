@@ -152,6 +152,7 @@ describe('Test for Update Meal from the Menu', () => {
     mealDescription: 'A very delicious food',
     mealPrice: 350,
   };
+
   it('It should not update a meal if not admin', (done) => {
     chai.request(app)
       .put('/api/v1/menu/1')
@@ -162,6 +163,46 @@ describe('Test for Update Meal from the Menu', () => {
         response.should.have.status(403);
         response.body.status.should.eql('failed');
         response.body.message.should.eql('You do not have the permission to access this resource!');
+        done();
+      });
+  });
+
+  it('It should update a meal', (done) => {
+    chai.request(app)
+      .put('/api/v1/menu/1')
+      .set('Accept', 'application/json')
+      .set('token', adminToken)
+      .send(correctUpdateObject)
+      .end((err, response) => {
+        response.should.have.status(200);
+        response.body.status.should.eql('success');
+        response.body.message.should.eql('Meal has been updated in the menu');
+        done();
+      });
+  });
+
+  it('It should delete a meal', (done) => {
+    chai.request(app)
+      .delete('/api/v1/menu/1')
+      .set('Accept', 'application/json')
+      .set('token', adminToken)
+      .end((err, response) => {
+        response.should.have.status(200);
+        response.body.status.should.eql('success');
+        response.body.message.should.eql('meal successfully deleted');
+        done();
+      });
+  });
+
+  it('It should not find a meal to delete', (done) => {
+    chai.request(app)
+      .delete('/api/v1/menu/1')
+      .set('Accept', 'application/json')
+      .set('token', adminToken)
+      .end((err, response) => {
+        response.should.have.status(404);
+        response.body.status.should.eql('failed');
+        response.body.message.should.eql('cannot find that meal');
         done();
       });
   });

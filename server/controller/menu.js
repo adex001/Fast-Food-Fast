@@ -29,6 +29,7 @@ class MenuController {
           data: result.rows[0],
         });
       }
+      return null;
     });
   }
 
@@ -83,6 +84,29 @@ class MenuController {
           data: result.rows[0],
         });
       }
+      return null;
+    });
+  }
+
+  /**
+  * Delete Food Item Controller deletes a meal from the menu
+  * @param {string} req - The request to the server
+  * @param {string} res - The response from the server.
+  */
+  static deleteFoodItem(req, res) {
+    const mealId = parseInt(req.params.mealId, 10);
+    const deleteQuery = `DELETE FROM menu WHERE mealid = '${mealId}' RETURNING *`;
+    pool.query(deleteQuery, (err, result) => {
+      if (result.rowCount < 1) {
+        return res.status(404).json({
+          status: 'failed',
+          message: 'cannot find that meal',
+        });
+      }
+      return res.status(200).json({
+        status: 'success',
+        message: 'meal successfully deleted',
+      });
     });
   }
 }

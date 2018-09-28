@@ -7,6 +7,7 @@ const menuRoute = Router();
 
 menuRoute.post('/', TokenHandler.verifyToken, TokenHandler.isAdmin, MenuController.createMeal)
   .get('/', MenuController.getAllFoodItems)
-  .put('/:mealId', TokenHandler.verifyToken, TokenHandler.isAdmin, MenuController.updateFoodItem);
+  .put('/:mealId', TokenHandler.verifyToken, TokenHandler.isAdmin, MenuController.updateFoodItem)
+  .delete('/:mealId', TokenHandler.verifyToken, TokenHandler.isAdmin, MenuController.deleteFoodItem);
 
 export default menuRoute;
