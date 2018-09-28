@@ -1,5 +1,4 @@
 import pool from '../database/connectdatabase';
-import getUser from '../utilities/getUser';
 
 class OrderController {
   // COntroller to fetch all orders
@@ -12,18 +11,10 @@ class OrderController {
           message: 'No order found',
         });
       }
-      getUser(result.rows[0].userid).then((userdata) => {
-        const displayData = {
-          ordersid: result.rows[0].ordersid,
-          ordersdate: result.rows[0].ordersdate,
-          userdata,
-        };
-
-        return res.status(200).json({
-          status: 'success',
-          message: 'all orders successfully retrieved',
-          data: displayData,
-        });
+      return res.status(200).json({
+        status: 'success',
+        message: 'all orders returned',
+        data: result.rows,
       });
     });
   }
