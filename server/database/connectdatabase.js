@@ -43,8 +43,15 @@ const createMenuTable = `CREATE TABLE IF NOT EXISTS menu (
   mealDescription varchar (300),
   mealPrice DECIMAL
 )`;
-
-pool.query(`${createUserTable}; ${createMenuTable};`, () => {
+const createOrdersTable = `CREATE TABLE IF NOT EXISTS orders(
+  ordersId serial PRIMARY KEY,
+  orderDate TIMESTAMP NOT NULL DEFAULT NOW(),
+  userId serial REFERENCES users(userId),
+  meals JSONB NOT NULL,
+  orderStatus varchar(30),
+  totalPrice DECIMAL
+)`;
+pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable}`, () => {
   console.log('User Table and Menu Table Created!!');
 });
 
