@@ -41,6 +41,13 @@ class MenuController {
   static getAllFoodItems(req, res) {
     const getAllFoodItemsQuery = 'SELECT * FROM menu';
     pool.query(getAllFoodItemsQuery, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: 'failed',
+          message: 'internal server error',
+          err,
+        });
+      }
       if (result.rowCount < 1) {
         return res.status(404).json({
           status: 'success',

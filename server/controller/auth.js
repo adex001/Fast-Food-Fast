@@ -30,7 +30,7 @@ class AuthController {
         });
       }
       const userData = {
-        userId: result.rows[0].userId,
+        userId: result.rows[0].userid,
         firstname: result.rows[0].firstname,
         isAdmin: result.rows[0].isadmin,
       };
@@ -68,7 +68,7 @@ class AuthController {
         });
       }
       const userData = {
-        userId: result.rows[0].userId,
+        userId: result.rows[0].userid,
         firstname: result.rows[0].firstname,
         isAdmin: result.rows[0].isadmin,
       };

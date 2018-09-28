@@ -7,6 +7,8 @@ const ordersRoute = Router();
 
 ordersRoute.get('/orders', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.getAllOrders)
   .get('/orders/:ordersId', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.getSpecificOrder)
-  .get('/users/:userId/orders', TokenHandler.verifyToken, OrderController.getUserSpecificOrder);
+  .get('/users/:userId/orders', TokenHandler.verifyToken, OrderController.getUserSpecificOrder)
+  .post('/orders', TokenHandler.verifyToken, OrderController.createAnOrder)
+  .put('/orders/:ordersId', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.updateOrder);
 
 export default ordersRoute;
