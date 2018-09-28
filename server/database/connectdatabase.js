@@ -18,9 +18,7 @@ const testConfig = {
   password: process.env.TEST_DB_PASSWORD,
   port: process.env.TEST_DB_PORT,
 };
-
 const pool = process.env.NODE_ENV === 'test' ? new pg.Pool(testConfig) : new pg.Pool(databaseConfig);
-
 const createUserTable = `CREATE TABLE IF NOT EXISTS users (
   userId serial PRIMARY KEY,
   email varchar(80) UNIQUE,
@@ -50,6 +48,15 @@ const createOrdersTable = `CREATE TABLE IF NOT EXISTS orders(
   orderStatus varchar(30),
   totalPrice DECIMAL
 )`;
-pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable}`);
 
+const connect = () => new Promise((resolve) => {
+  pool.connect((err, client, done) => {
+    client.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable}`, () => {
+      done();
+    });
+  });
+  resolve();
+});
+
+connect();
 export default pool;
