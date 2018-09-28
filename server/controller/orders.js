@@ -114,6 +114,39 @@ class OrderController {
       }
     });
   }
+  /**
+ * Update Order Controller update the status of an order
+ * @param {string} req - The request to the server
+ * @param {string} res - The response from the server.
+ */
+
+  static updateOrder(req, res) {
+    const { orderstatus } = req.body;
+    const { ordersId } = req.params;
+    if (orderstatus !== 'New' && orderstatus !== 'Processing' && orderstatus !== 'Cancelled' && orderstatus !== 'Complete') {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'OrderStatus should be either New, Processing, Cancelled or Complete',
+      });
+    }
+    const updateQuery = `UPDATE orders SET orderstatus = '${orderstatus}'
+    WHERE ordersid = '${ordersId}' RETURNING *`;
+    pool.query(updateQuery, (err, result) => {
+      if (result.rowCount < 1) {
+        return res.status(404).json({
+          status: 'failed',
+          message: 'Order does not exist',
+        });
+      }
+      if (result.rowCount > 0) {
+        return res.status(200).json({
+          status: 'success',
+          data: result.rows[0],
+        });
+      }
+    });
+    return null;
+  }
 }
 
 export default OrderController;
