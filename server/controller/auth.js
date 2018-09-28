@@ -60,7 +60,6 @@ class AuthController {
           message: 'Email does not exist',
         });
       }
-      const userId = result.rows[0].userid;
       const decryptPassword = bcrypt.compareSync(password, result.rows[0].password);
       if (!decryptPassword) {
         return res.status(401).json({

@@ -56,6 +56,7 @@ class MenuController {
       }
       return null;
     });
+    return null;
   }
 
   /**
@@ -109,6 +110,12 @@ class MenuController {
           message: 'internal server error',
         });
       }
+      if (result.rowCount < 1) {
+        return res.status(404).json({
+          status: 'failed',
+          message: 'Meal not found',
+        });
+      }
       if (result.rowCount > 0) {
         return res.status(200).json({
           status: 'success',
@@ -129,6 +136,12 @@ class MenuController {
     const mealId = parseInt(req.params.mealId, 10);
     const deleteQuery = `DELETE FROM menu WHERE mealid = '${mealId}' RETURNING *`;
     pool.query(deleteQuery, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: 'failed',
+          message: 'internal server error',
+        });
+      }
       if (result.rowCount < 1) {
         return res.status(404).json({
           status: 'failed',

@@ -6,7 +6,6 @@ import app from '../app';
 
 chai.use(chaiHttp);
 chai.should();
-// Signs in an admin user
 let adminToken = null;
 let userToken = null;
 const wrongToken = 'jkwvweocneovnweovnwkvkwdnvewvewlkjewgew.ewgewgwekjgowehgowqehgqewgwegwqegeq.qrghrgkhwdiohgwuge';

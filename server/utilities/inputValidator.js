@@ -1,9 +1,7 @@
 class Validator {
   static validate(type, value) {
-    // DISCLAIMER: THIS EMAIL REGEX SNIPPET IS NOT MY OWN AND ITS IDEA WAS COPIED FROM
-    // https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
     if (type === 'email') {
-      const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const regex = /\S+@\S+\.\S+/;
       return regex.test(String(value).toLowerCase());
     }
     const stringy = value.trim();

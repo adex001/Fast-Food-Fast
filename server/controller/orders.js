@@ -63,7 +63,8 @@ class OrderController {
  * @param {string} res - The response from the server.
  */
   static getUserSpecificOrder(req, res) {
-    const { userId } = req.params;
+    let { userId } = req.params;
+    userId = parseInt(userId, 10);
     const query = `SELECT * FROM orders WHERE userId = '${userId}'`;
 
     pool.query(query, (err, result) => {

@@ -38,12 +38,5 @@ class InputValidator {
       message: 'An incorrect parameter has been supplied',
     });
   }
-
-  // static validateMenu(req, res, next) {
-  //   const {
-  //     mealName, mealImageUrl, mealDescription, mealPrice,
-  //   } = req.body;
-  //   if ()
-  // }
 }
 export default InputValidator;
