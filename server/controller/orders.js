@@ -88,6 +88,32 @@ class OrderController {
       }
     });
   }
+
+  /**
+ * Create Order Controller places a new order
+ * @param {string} req - The request to the server
+ * @param {string} res - The response from the server.
+ */
+  static createAnOrder(req, res) {
+    const { meals, totalPrice } = req.body;
+    const { userId } = req.decoded;
+    const insertQuery = `INSERT INTO orders (meals, totalprice, userid, orderstatus) VALUES ('${JSON.stringify(meals)}', '${totalPrice}', '${userId}', 'NEW') RETURNING *`;
+    pool.query(insertQuery, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: 'failed',
+          message: 'internal server error',
+        });
+      }
+      if (result.rowCount > 0) {
+        return res.status(201).json({
+          status: 'success',
+          message: 'Order successfully placed',
+          data: result.rows[0],
+        });
+      }
+    });
+  }
 }
 
 export default OrderController;
