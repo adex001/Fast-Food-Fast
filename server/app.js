@@ -13,7 +13,7 @@ const port = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api/v1/auth', authRoute);
-app.use('/api/v1/orders', ordersRoute);
+app.use('/api/v1/', ordersRoute);
 app.use('/api/v1/menu', menuRoute);
 
 app.get('/', (req, res) => {

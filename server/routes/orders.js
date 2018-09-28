@@ -5,7 +5,8 @@ import OrderController from '../controller/orders';
 
 const ordersRoute = Router();
 
-ordersRoute.get('/', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.getAllOrders);
-ordersRoute.get('/:ordersId', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.getSpecificOrder);
+ordersRoute.get('/orders', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.getAllOrders)
+  .get('/orders/:ordersId', TokenHandler.verifyToken, TokenHandler.isAdmin, OrderController.getSpecificOrder)
+  .get('/users/:userId/orders', TokenHandler.verifyToken, OrderController.getUserSpecificOrder);
 
 export default ordersRoute;

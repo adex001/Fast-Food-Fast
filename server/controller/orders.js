@@ -56,6 +56,38 @@ class OrderController {
       }
     });
   }
+
+  /**
+ * Get a specific order Controller retrieves a specific order
+ * @param {string} req - The request to the server
+ * @param {string} res - The response from the server.
+ */
+  static getUserSpecificOrder(req, res) {
+    const { userId } = req.params;
+    const query = `SELECT * FROM orders WHERE userId = '${userId}'`;
+
+    pool.query(query, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: 'failed',
+          message: 'internal server error',
+        });
+      }
+      if (result.rowCount < 1) {
+        return res.status(404).json({
+          status: 'failed',
+          message: 'No orders found',
+        });
+      }
+      if (result.rowCount > 0) {
+        return res.status(200).json({
+          status: 'success',
+          message: 'Particular user order',
+          data: result.rows,
+        });
+      }
+    });
+  }
 }
 
 export default OrderController;
