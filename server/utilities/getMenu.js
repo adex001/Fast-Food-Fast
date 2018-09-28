@@ -1,24 +1,15 @@
-import pool from '../database/connectdatabase';
+import getMeal from './getMeal';
 
 /**
- * @function getMenu
- * @param {*} menuarray
+ * Get Menu function retrieves all menu
+ * @param {array} menu - The menu array
  */
-const getMenu = (menuarray) => {
-  menuarray.forEach((arr) => {
-    return new Promise((resolve) => {
-
-      const getmenuQuery = `SELECT * FROM menu WHERE mealid = '${arr.mealId}'`;
-      pool.query(getmenuQuery, (err, result) => {
-        if (err) {
-          return 'Error';
-        }
-        if (result.rowCount < 1) {
-          return 'No such meal';
-        }
-        resolve(result.rows[0]);
-      });
+const getMenu = menu => new Promise((resolve) => {
+  menu.forEach((meal) => {
+    getMeal(meal.mealId).then((mealdata) => {
+      resolve(mealdata);
     });
   });
-};
+});
+
 export default getMenu;

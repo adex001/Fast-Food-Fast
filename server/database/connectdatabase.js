@@ -50,12 +50,7 @@ const createOrdersTable = `CREATE TABLE IF NOT EXISTS orders(
   orderStatus varchar(30),
   totalPrice DECIMAL
 )`;
-
-pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable};`, (err, res) => {
-  if (res) {
-    console.log('Users Table, Menu Table and Orders Table Created!!');
-    console.log(process.env.NODE_ENV);
-  }
+pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable}`, () => {
 });
 
 export default pool;

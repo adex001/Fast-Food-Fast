@@ -54,6 +54,7 @@ class MenuController {
           data: result.rows[0],
         });
       }
+      return null;
     });
   }
 
@@ -65,6 +66,13 @@ class MenuController {
   static getAllFoodItems(req, res) {
     const getAllFoodItemsQuery = 'SELECT * FROM menu';
     pool.query(getAllFoodItemsQuery, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: 'failed',
+          message: 'internal server error',
+          err,
+        });
+      }
       if (result.rowCount < 1) {
         return res.status(404).json({
           status: 'success',
@@ -86,14 +94,14 @@ class MenuController {
   * @param {string} res - The response from the server.
   */
   static updateFoodItem(req, res) {
-    const { mealId } = parseInt(req.params, 10);
+    const mealId = parseInt(req.params.mealId, 10);
     const { mealName, mealImageUrl, mealDescription } = req.body;
-    const { mealPrice } = req.body;
+    const mealPrice = parseFloat(req.body.mealPrice);
     const updateMealQuery = `UPDATE menu SET mealName = '${mealName}',
-    mealImageUrl = '${mealImageUrl}',
-    mealDescription = '${mealDescription}',
-    mealPrice = '${mealPrice}'
-    WHERE mealId = ${mealId} RETURNING *;`;
+    mealimageurl = '${mealImageUrl}',
+    mealdescription = '${mealDescription}',
+    mealprice = '${mealPrice}'
+    WHERE mealid = '${mealId}' RETURNING *;`;
     pool.query(updateMealQuery, (err, result) => {
       if (err) {
         return res.status(500).json({
@@ -108,6 +116,29 @@ class MenuController {
           data: result.rows[0],
         });
       }
+      return null;
+    });
+  }
+
+  /**
+  * Delete Food Item Controller deletes a meal from the menu
+  * @param {string} req - The request to the server
+  * @param {string} res - The response from the server.
+  */
+  static deleteFoodItem(req, res) {
+    const mealId = parseInt(req.params.mealId, 10);
+    const deleteQuery = `DELETE FROM menu WHERE mealid = '${mealId}' RETURNING *`;
+    pool.query(deleteQuery, (err, result) => {
+      if (result.rowCount < 1) {
+        return res.status(404).json({
+          status: 'failed',
+          message: 'cannot find that meal',
+        });
+      }
+      return res.status(200).json({
+        status: 'success',
+        message: 'meal successfully deleted',
+      });
     });
   }
 }

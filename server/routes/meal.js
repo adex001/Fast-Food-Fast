@@ -7,7 +7,8 @@ import mealNameCheck from '../middlewares/mealChecker';
 const menuRoute = Router();
 // Check meal name
 menuRoute.post('/', TokenHandler.verifyToken, TokenHandler.isAdmin, mealNameCheck, MenuController.createMeal)
-  .get('/', MenuController.getAllFoodItems)
-  .put('/:mealId', TokenHandler.verifyToken, TokenHandler.isAdmin, mealNameCheck, MenuController.updateFoodItem);
+  .get('/', TokenHandler.verifyToken, MenuController.getAllFoodItems)
+  .put('/:mealId', TokenHandler.verifyToken, TokenHandler.isAdmin, mealNameCheck, MenuController.updateFoodItem)
+  .delete('/:mealId', TokenHandler.verifyToken, TokenHandler.isAdmin, MenuController.deleteFoodItem);
 
 export default menuRoute;
