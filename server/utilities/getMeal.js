@@ -1,5 +1,9 @@
 import pool from '../database/connectdatabase';
 
+/**
+ * Get Meal function retrieves a single meal from the menu
+ * @param {string} mealid - The menu array
+ */
 const getMeal = (mealid) => {
   return new Promise((resolve) => {
     const query = `SELECT * FROM menu WHERE mealid = '${mealid}'`;

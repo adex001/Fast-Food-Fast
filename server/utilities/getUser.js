@@ -1,5 +1,9 @@
 import pool from '../database/connectdatabase';
 
+/**
+ * Fetch User function retrieves all users
+ * @param {integer} userId - The userId
+ */
 const getUser = (userId) => {
   const query = `SELECT * FROM users WHERE userid = '${userId}'`;
   return new Promise((resolve) => {
