@@ -13,14 +13,14 @@ describe('Auth Controller Signup Test', () => {
     password: 'password',
     firstname: 'Testing',
     lastname: 'Tester',
-    isAdmin: true,
+    isAdmin: 'true',
   };
   const correctSignupDetails2 = {
     email: 'tester2@gmail.com',
     password: 'password',
     firstname: 'Testing',
     lastname: 'Tester',
-    isAdmin: false,
+    isAdmin: 'false',
   };
   const serverErrorDetails = {
     email: 'testererror@gmail.com',
@@ -66,15 +66,15 @@ describe('Auth Controller Signup Test', () => {
         done();
       });
   });
-  it('Tests to make sure it results to internal server error', (done) => {
+  it('Should not create a new account with invalid parameter', (done) => {
     chai.request(app)
       .post('/api/v1/auth/signup')
       .set('Accept', 'application/json')
       .send(serverErrorDetails)
       .end((err, response) => {
-        response.should.have.status(500);
+        response.should.have.status(400);
         response.body.status.should.eql('failed');
-        response.body.message.should.eql('internal server error!');
+        response.body.message.should.eql('An incorrect parameter has been supplied');
         done();
       });
   });

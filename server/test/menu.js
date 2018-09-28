@@ -10,7 +10,7 @@ let adminToken = null;
 let userToken = null;
 const wrongToken = 'jkwvweocneovnweovnwkvkwdnvewvewlkjewgew.ewgewgwekjgowehgowqehgqewgwegwqegeq.qrghrgkhwdiohgwuge';
 
-describe('Test for Add Menu', () => {
+describe('Tests for Menu', () => {
   const adminLoginDetails = {
     email: 'tester@gmail.com',
     password: 'password',
@@ -23,7 +23,7 @@ describe('Test for Add Menu', () => {
     mealName: 'eba and abula',
     mealImageUrl: 'http://mealImageId.com/image1',
     mealDescription: 'A very great meal',
-    mealPrice: 300,
+    mealPrice: '300',
   };
   const incorrectMenuItem = {
     mealName: 'eba and abula',
@@ -45,6 +45,7 @@ describe('Test for Add Menu', () => {
     chai.request(app)
       .get('/api/v1/menu')
       .set('Accept', 'application/json')
+      .set('token', adminToken)
       .end((err, response) => {
         response.should.have.status(404);
         response.body.status.should.eql('success');
@@ -76,16 +77,16 @@ describe('Test for Add Menu', () => {
         done();
       });
   });
-  it('should not add a new meal if price is not integer ', (done) => {
+  it('should not add a new meal if meal has been added before ', (done) => {
     chai.request(app)
       .post('/api/v1/menu')
       .set('Accept', 'application/json')
       .set('token', adminToken)
       .send(incorrectMenuItem)
       .end((err, response) => {
-        response.should.have.status(500);
+        response.should.have.status(400);
         response.body.status.should.eql('failed');
-        response.body.message.should.eql('internal server error');
+        response.body.message.should.eql('meal already exists, add another');
         done();
       });
   });
@@ -134,6 +135,7 @@ describe('Test for Get Menu', () => {
     chai.request(app)
       .get('/api/v1/menu')
       .set('Accept', 'application/json')
+      .set('token', adminToken)
       .end((err, response) => {
         response.should.have.status(200);
         response.body.status.should.eql('success');

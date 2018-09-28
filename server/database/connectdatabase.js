@@ -50,7 +50,6 @@ const createOrdersTable = `CREATE TABLE IF NOT EXISTS orders(
   orderStatus varchar(30),
   totalPrice DECIMAL
 )`;
-pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable}`, () => {
-});
+pool.query(`${createUserTable}; ${createMenuTable}; ${createOrdersTable}`);
 
 export default pool;
