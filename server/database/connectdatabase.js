@@ -46,7 +46,6 @@ const createMenuTable = `CREATE TABLE IF NOT EXISTS menu (
 
 pool.query(`${createUserTable}; ${createMenuTable};`, () => {
   console.log('User Table and Menu Table Created!!');
-  console.log(process.env.NODE_ENV);
 });
 
 export default pool;
