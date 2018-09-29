@@ -21,3 +21,13 @@ CREATE TABLE IF NOT EXISTS menu (
   mealDescription varchar (300),
   mealPrice DECIMAL
 )
+
+CREATE TABLE IF NOT EXISTS orders(
+  ordersId serial PRIMARY KEY,
+  orderDate TIMESTAMP NOT NULL DEFAULT NOW(),
+  userId serial REFERENCES users(userId),
+  meals JSONB NOT NULL,
+  orderStatus varchar(30)
+  totalPrice DECIMAL,
+)
+

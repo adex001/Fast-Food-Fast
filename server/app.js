@@ -16,6 +16,7 @@ app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/', ordersRoute);
 app.use('/api/v1/menu', menuRoute);
 
+
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Welcome to fast-food-fast API',

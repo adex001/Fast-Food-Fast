@@ -1,4 +1,5 @@
 import pool from '../database/connectdatabase';
+import Validator from '../utilities/inputValidator';
 
 /**
  * Menu Controller class deals with all menu functions
@@ -14,6 +15,30 @@ class MenuController {
     const {
       mealName, mealImageUrl, mealDescription, mealPrice,
     } = req.body;
+    if (!Validator.validateString(mealName)) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'Mealname has an invalid parameter',
+      });
+    }
+    if (!Validator.validateString(mealImageUrl)) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'mealImageUrl has an invalid parameter',
+      });
+    }
+    if (!Validator.validateString(mealDescription)) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'Meal Description has an invalid parameter',
+      });
+    }
+    if (Validator.validateInt(mealPrice)) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'Meal Price has an invalid parameter',
+      });
+    }
     const addMealQuery = `INSERT INTO menu (mealName, mealImageUrl, mealDescription, mealPrice) VALUES ('${mealName}', '${mealImageUrl}', '${mealDescription}', '${mealPrice}') RETURNING *;`;
     pool.query(addMealQuery, (err, result) => {
       if (err) {
@@ -31,6 +56,7 @@ class MenuController {
       }
       return null;
     });
+    return null;
   }
 
   /**
@@ -84,6 +110,12 @@ class MenuController {
           message: 'internal server error',
         });
       }
+      if (result.rowCount < 1) {
+        return res.status(404).json({
+          status: 'failed',
+          message: 'Meal not found',
+        });
+      }
       if (result.rowCount > 0) {
         return res.status(200).json({
           status: 'success',
@@ -104,6 +136,12 @@ class MenuController {
     const mealId = parseInt(req.params.mealId, 10);
     const deleteQuery = `DELETE FROM menu WHERE mealid = '${mealId}' RETURNING *`;
     pool.query(deleteQuery, (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: 'failed',
+          message: 'internal server error',
+        });
+      }
       if (result.rowCount < 1) {
         return res.status(404).json({
           status: 'failed',

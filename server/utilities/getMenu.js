@@ -11,4 +11,5 @@ const getMenu = menu => new Promise((resolve) => {
     });
   });
 });
+
 export default getMenu;
