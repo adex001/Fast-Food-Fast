@@ -1,6 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+import swaggerUi from 'swagger-ui-express';
+import yaml from 'yamljs';
 
 import ordersRoute from './routes/orders';
 import authRoute from './routes/auth';
@@ -10,6 +12,8 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
+const swaggerDoc = yaml.load(`${process.cwd()}/swagger.yaml`);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api/v1/auth', authRoute);

@@ -17,7 +17,10 @@
     "jsonwebtoken": "^8.3.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.4",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "swagger-ui-express": "^4.0.1",
+    "yaml": "^1.0.0",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "codeclimate-test-reporter": "^0.5.0",
